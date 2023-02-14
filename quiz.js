@@ -79,7 +79,7 @@ const quiz = [
         ]
     },
     {
-        question: `The external JavaScript file must contain the &lt; script &gt; tag`,
+        question: `The external JavaScript file must contain the <script> tag`,
         answers: [
             {
                 ans: "True",

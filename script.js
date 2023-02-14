@@ -8,6 +8,7 @@ const newQuestion = document.querySelector('.javascript-questions').querySelecto
 const questionAnswers = document.querySelector('.question-answers')
 const nextQuestion = document.querySelector('.next-question-btn')
 const questionsRemaining = document.querySelector('.num-of-questions-left')
+let score = 0
 
 
 
@@ -54,9 +55,39 @@ function generateQuestion() {
         console.log(quiz[i].answers[j].correct)
     }
     questionsRemaining.innerHTML = `<p><span>${i + 1}</span> of <span>30</span> Questions</p>`
+    showAnswer()
     if (i >= 30) {
         return
     }
+}
+
+function showAnswer(){
+    // const wrongOptions = document.querySelectorAll('.fa-circle-xmark')
+    const correctOption = document.querySelector('.fa-circle-check')
+    const allAnswers = document.querySelectorAll('.answer')
+    allAnswers.forEach(answer => {
+        answer.addEventListener('click', () => {
+            handleWrongAnswers(answer, correctOption)
+            // allAnswers.classList.add('disable-click')
+        })
+    })
+    correctOption.addEventListener('click', () => {
+        handleCorrectOption(correctOption)
+    })
+    
+    
+}
+
+function handleWrongAnswers(answerValue, opt){
+    answerValue.querySelector('.fa-regular').classList.add('display-status')
+    opt.classList.add('display-status')
+    // answerValue.classList.add("disable-click")
+    console.log(score)
+}
+function handleCorrectOption(opt){
+    opt.classList.add('display-status')
+    ++score
+    console.log(score)
 }
 
 

@@ -175,11 +175,21 @@ button{
     display: flex;
     justify-content: space-between;
 }
+.disable-click{
+    pointer-events: none;
+}
 .answer p{
     width: 230px;
     /* border: 1px solid red; */
     padding-right: .6rem;
     align-self: center;
+}
+.answer-status{
+    align-self: center;
+    visibility: hidden;
+}
+.display-status{
+    visibility: visible;
 }
 .fa-circle-check{
     color: green;
