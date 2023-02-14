@@ -167,13 +167,19 @@ button{
     /* height: 190px; */
 }
 .answer{
-    padding: .6rem .6rem .6rem .9rem;
-    height: 40px;
+    padding: .6rem .6rem .6rem .6rem;
+    height: 50px;
     box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, .288);
-    font-size: .8rem;
+    font-size: .7rem;
     margin-bottom: .9rem;
     display: flex;
     justify-content: space-between;
+}
+.answer p{
+    width: 230px;
+    /* border: 1px solid red; */
+    padding-right: .6rem;
+    align-self: center;
 }
 .fa-circle-check{
     color: green;

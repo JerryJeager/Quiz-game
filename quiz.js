@@ -3,19 +3,19 @@ const quiz = [
         question: "Inside which HTML element do we put the JavaScript?",
         answers: [
             {
-                ans: "<javascript>",
+                ans: `&lt; javascript &gt;`,
                 correct: false
             },
             {
-                ans: "<scripting>",
+                ans: `&lt; scripting &gt;`,
                 correct: false
             },
             {
-                ans: "<js>",
+                ans: `&lt; js &gt;`,
                 correct: false
             },
             {
-                ans: "<script>",
+                ans: `&lt; script &gt;`,
                 correct: true
             }
         ]
@@ -24,7 +24,7 @@ const quiz = [
         question: `What is the correct JavaScript syntax to change the content of the HTML element below?
         
         
-        <p id="demo"> This is a demonstration.</p>`,
+        <p id="demo">This is a demonstration.</p>`,
         answers: [
             {
                 ans: `document.getElementByName("p").innerHTML = "Hello World!`,
@@ -48,15 +48,15 @@ const quiz = [
         question: "where is the correct place to insert a JavaScript",
         answers: [
             {
-                ans: `Both the <head> section and the <body> section are correct`,
+                ans: `Both the &lt; head &gt; section and the &lt; body &gt; section are correct`,
                 correct: true
             },
             {
-                ans: `The <head> section`,
+                ans: `The &lt; head &gt; section`,
                 correct: false
             },
             {
-                ans: `The <body> section`,
+                ans: `The &lt; body &gt; section`,
                 correct: false
             }
         ]
@@ -65,21 +65,21 @@ const quiz = [
         question: `What is the correct syntax for referring to an external script called "xxx.js"?`,
         answers: [
             {
-                ans: `<script src="xxx.js">`,
+                ans: `&lt; script src="xxx.js" &gt;`,
                 correct: true
             },
             {
-                ans: `<script href="xxx.js">`,
+                ans: `&lt; script href="xxx.js" &gt;`,
                 correct: false
             },
             {
-                ans: `<script name="xxx.js">`,
+                ans: `&lt; script name="xxx.js" &gt;`,
                 correct: false
             }
         ]
     },
     {
-        question: `The external JavaScript file must contain the <script> tag`,
+        question: `The external JavaScript file must contain the &lt; script &gt; tag`,
         answers: [
             {
                 ans: "True",
@@ -175,11 +175,11 @@ const quiz = [
                 correct: true
             },
             {
-                ans: `if(i <> 5)`,
+                ans: `if(i &lt;  &gt; 5)`,
                 correct: false
             },
             {
-                ans: `if i <> 5`,
+                ans: `if i &lt;  &gt; 5`,
                 correct: false
             },
             {
@@ -192,7 +192,7 @@ const quiz = [
         question: "How does a WHILE loop start?",
         answers: [
             {
-                ans: `while(i <= 10; i++)`,
+                ans: `while(i &lt; = 10; i++)`,
                 correct: false
             },
             {
@@ -200,7 +200,7 @@ const quiz = [
                 correct: false
             },
             {
-                ans: `while(i <= 10)`,
+                ans: `while(i &lt; = 10)`,
                 correct: true
             }
         ]
@@ -213,15 +213,15 @@ const quiz = [
                 correct: false
             },
             {
-                ans: `for(i = 0; i <= 5)`,
+                ans: `for(i = 0; i &lt; = 5)`,
                 correct: false
             },
             {
-                ans: `for(i = 0; i <= 5; i++)`,
+                ans: `for(i = 0; i &lt; = 5; i++)`,
                 correct: true
             },
             {
-                ans: `for(i <= 5; i++)`,
+                ans: `for(i &lt; = 5; i++)`,
                 correct: false
             }
         ]
@@ -230,7 +230,7 @@ const quiz = [
         question: "How can you add a comment in a JavaScript?",
         answers: [
             {
-                ans: `<!--This is a comment-->`,
+                ans: `&lt; !--This is a comment-- &gt;`,
                 correct: false
             },
             {
@@ -247,19 +247,15 @@ const quiz = [
         question: "How to insert a comment that has more than one line?",
         answers: [
             {
-                ans: `<!--This comment has
-more than oen line-->`,
+                ans: `&lt; !--This comment has<br>more than oen line-- &gt;`,
                 correct: false
             },
             {
-                ans: `//This comment has 
-more than one line`,
+                ans: `//This comment has<br> more than one line`,
                 correct: false
             },
             {
-                ans: `/*This 
-comment has more
-one line*/`,
+                ans: `/*This comment<br> has more<br>one line*/`,
                 correct: true
             }
         ]
@@ -392,7 +388,7 @@ one line*/`,
         ]
     },
     {
-        question: "How do you declare a JavaScritp Variable?",
+        question: "How do you declare a JavaScript Variable?",
         answers: [
             {
                 ans: `variable carName`,
@@ -543,11 +539,11 @@ one line*/`,
         question: "what is the syntax for an anonymous arrow function",
         answers: [
             {
-                ans: `function() -> {}`,
+                ans: `function() - &gt; {}`,
                 correct: false
             },
             {
-                ans: `() -> {}`,
+                ans: `() - &gt; {}`,
                 correct: false
             },
             {
@@ -555,7 +551,7 @@ one line*/`,
                 correct: false
             },
             {
-                ans: `() => {}`,
+                ans: `() = &gt; {}`,
                 correct: true
             }
         ]
