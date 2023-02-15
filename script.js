@@ -15,13 +15,13 @@ const replayBtn = document.querySelector('.replay-btn')
 const totalScore = document.querySelector('.total-score')
 let score = 0
 let timeCount = 15
+let updateTime = ''
 
 
 
 startBtn.addEventListener('click', () => {
     startBtn.classList.add('hide-start-btn')
     rules.classList.add('rules-display')
-    // timeCountDown()
 })
 
 exit.addEventListener('click', () => {
@@ -40,11 +40,10 @@ nextQuestion.addEventListener('click', () => {
         quizQuestions.classList.remove('display-quiz-questions')
         result.classList.add('show-result')
         totalScore.innerHTML = `You've completed Jerry's Quiz! and nice 🤓, You got <span>${score}</span> out of <span>30</span>`
-    }else{
+    } else {
         questionAnswers.textContent = ''
+        clearInterval(updateTime)
         generateQuestion()
-        // console.log(timeC)
-        // timeCountDown()
     }
     console.log(score)
 })
@@ -56,6 +55,7 @@ quitBtn.addEventListener('click', () => {
     score = 0
     newQuestion.textContent = ''
     questionAnswers.innerHTML = ''
+    clearInterval(updateTime)
 })
 
 replayBtn.addEventListener('click', () => {
@@ -65,8 +65,8 @@ replayBtn.addEventListener('click', () => {
     score = 0
     newQuestion.textContent = ''
     questionAnswers.innerHTML = ''
+    clearInterval(updateTime)
     generateQuestion()
-    // timeCountDown()
 })
 
 let i = -1
@@ -75,7 +75,7 @@ function generateQuestion() {
     i++
     newQuestion.textContent = `${i + 1}. ${quiz[i].question}`
     timeCount = 15
-    timeCountDown()
+    updateTime = setInterval(timeCountDown, 1000)
     for (let j = 0; j < quiz[i].answers.length; j++) {
         if (quiz[i].answers[j].correct == false) {
             questionAnswers.innerHTML += `<div class="answer">
@@ -113,31 +113,23 @@ function showAnswer() {
 }
 
 function timeCountDown() {
-    setTimeout(() => {
-        if(timeCount > 0){
-            time.innerHTML = `<div class="time-status">
+    if (timeCount > 0) {
+        time.innerHTML = `<div class="time-status">
                         <p>Time Left</p>
                     </div>
                     <div class="time-countdown">
                         <p>${timeCount--}</p>
                     </div>`
-        }
-        else if (timeCount <= 0) {
-            time.innerHTML = `<div class="time-status">
+    }
+    else if (timeCount <= 0) {
+        time.innerHTML = `<div class="time-status">
                         <p>Time Off</p>
                     </div>
                     <div class="time-countdown">
                         <p>${timeCount}</p>
                     </div>`
-            const timeOffAnswer = document.querySelector('.fa-circle-check')
-            timeOffAnswer.classList.add('display-status')
-            return
-        }
-        timeCountDown()
-    }, 1000)
+        const timeOffAnswer = document.querySelector('.fa-circle-check')
+        timeOffAnswer.classList.add('display-status')
+        clearInterval(updateTime)
+    }
 }
-
-console.log(quiz.length)
-// console.log(quiz[1].question)
-// console.log(quiz[quiz.length - 1].answers[0].ans)
-// console.log(quiz[0].answers[2].correct)
