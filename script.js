@@ -33,7 +33,6 @@ continueBtn.addEventListener('click', () => {
     rules.classList.remove('rules-display')
     quizQuestions.classList.add('display-quiz-questions')
     generateQuestion()
-    timeCountDown()
 })
 
 nextQuestion.addEventListener('click', () => {
@@ -44,6 +43,7 @@ nextQuestion.addEventListener('click', () => {
     }else{
         questionAnswers.textContent = ''
         generateQuestion()
+        // console.log(timeC)
         // timeCountDown()
     }
     console.log(score)
@@ -53,6 +53,7 @@ quitBtn.addEventListener('click', () => {
     result.classList.remove('show-result')
     startBtn.classList.remove('hide-start-btn')
     i = -1
+    score = 0
     newQuestion.textContent = ''
     questionAnswers.innerHTML = ''
 })
@@ -61,6 +62,7 @@ replayBtn.addEventListener('click', () => {
     result.classList.remove('show-result')
     quizQuestions.classList.add('display-quiz-questions')
     i = -1
+    score = 0
     newQuestion.textContent = ''
     questionAnswers.innerHTML = ''
     generateQuestion()
@@ -73,6 +75,7 @@ function generateQuestion() {
     i++
     newQuestion.textContent = `${i + 1}. ${quiz[i].question}`
     timeCount = 15
+    timeCountDown()
     for (let j = 0; j < quiz[i].answers.length; j++) {
         if (quiz[i].answers[j].correct == false) {
             questionAnswers.innerHTML += `<div class="answer">
