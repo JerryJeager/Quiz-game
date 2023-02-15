@@ -220,3 +220,56 @@ button{
     font-family: 'Ubuntu', sans-serif;
     font-weight: 500;
 }
+.result{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 2rem;
+    width: 85%;
+    height: 250px;
+    box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .288);
+    border-radius: 15px;
+    display: none;
+}
+.result h2{
+    margin: 1.2rem auto;
+    font-size: 1.1rem;
+    width: 90%;
+    text-align: center;
+}
+.result span{
+    font-weight: 500;
+}
+.crown-icon{
+    width: 50px;
+    margin: auto;
+}
+.fa-crown{
+    font-size: 2.5rem;
+}
+.replay-and-quit{
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin: 1.5rem auto;
+    /* border: 2px solid red; */
+}
+.replay-and-quit button{
+    width: 100px;
+    padding: 1.3em;
+    background: none;
+    border-radius: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    font-size: .7rem;
+}
+.replay-btn{
+    box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, .288);
+}
+.quit-btn{
+    box-shadow: inset -3px -3px 7px #ffffff73, inset 3px 3px 5px rgba(94, 104, 121, .288);
+}
+.show-result{
+    display: block;
+}
