@@ -8,7 +8,10 @@ const newQuestion = document.querySelector('.javascript-questions').querySelecto
 const questionAnswers = document.querySelector('.question-answers')
 const nextQuestion = document.querySelector('.next-question-btn')
 const questionsRemaining = document.querySelector('.num-of-questions-left')
+// const correctOption = document.querySelector('.fa-circle-check')
+const time = document.querySelector('.time')
 let score = 0
+let timeCount = 15
 
 
 
@@ -26,17 +29,22 @@ continueBtn.addEventListener('click', () => {
     rules.classList.remove('rules-display')
     quizQuestions.classList.add('display-quiz-questions')
     generateQuestion()
-})
+    // timeCountDown()
+}) 
 
 nextQuestion.addEventListener('click', () => {
     questionAnswers.textContent = ''
     generateQuestion()
+    // timeCount = 15
+    console.log(score)
 })
 
 let i = -1
 
 function generateQuestion() {
     i++
+    timeCount = 15
+    timeCountDown()
     console.log(quiz[i].question)
     console.log(newQuestion)
     newQuestion.textContent = `${i + 1}. ${quiz[i].question}`
@@ -63,18 +71,19 @@ function generateQuestion() {
 
 function showAnswer(){
     // const wrongOptions = document.querySelectorAll('.fa-circle-xmark')
-    const correctOption = document.querySelector('.fa-circle-check')
+    const correctOption2 = document.querySelector('.fa-circle-check')
     const allAnswers = document.querySelectorAll('.answer')
     allAnswers.forEach(answer => {
         answer.addEventListener('click', () => {
+            // answer.classList.remove('disable-click')
             handleWrongAnswers(answer, correctOption)
             // allAnswers.classList.add('disable-click')
-        })
+        }, {once: true})
+        // answer.classList.add('disable-click')
     })
-    correctOption.addEventListener('click', () => {
-        handleCorrectOption(correctOption)
-    })
-    
+    correctOption2.addEventListener('click', () => {
+        handleCorrectOption(correctOption2)
+    }, {once: true})
     
 }
 
@@ -87,9 +96,30 @@ function handleWrongAnswers(answerValue, opt){
 function handleCorrectOption(opt){
     opt.classList.add('display-status')
     ++score
-    console.log(score)
 }
 
+function timeCountDown(){
+    setTimeout(() => {
+        time.innerHTML = `<div class="time-status">
+                        <p>Time Left</p>
+                    </div>
+                    <div class="time-countdown">
+                        <p>${timeCount--}</p>
+                    </div>`
+        if (timeCount <= 0) {
+            time.innerHTML = `<div class="time-status">
+                        <p>Time Off</p>
+                    </div>
+                    <div class="time-countdown">
+                        <p>${timeCount}</p>
+                    </div>`
+            const timeOffAnswer = document.querySelector('.fa-circle-check')
+            timeOffAnswer.classList.add('display-status')
+            return
+        }
+        timeCountDown()
+    }, 1000)
+}
 
 console.log(quiz.length)
 // console.log(quiz[1].question)
