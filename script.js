@@ -102,11 +102,13 @@ function showAnswer() {
                 answer.querySelector('.fa-circle-check').classList.add('display-status')
                 score++
                 console.log(score)
+                clearInterval(updateTime)
             }
             else {
                 answer.querySelector('.fa-circle-xmark').classList.add('display-status')
                 const correctOption = document.querySelector('.fa-circle-check')
                 correctOption.classList.add('display-status')
+                clearInterval(updateTime)
             }
         }, { once: true })
     })
