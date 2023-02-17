@@ -13,6 +13,7 @@ const result = document.querySelector('.result')
 const quitBtn = document.querySelector('.quit-btn')
 const replayBtn = document.querySelector('.replay-btn')
 const totalScore = document.querySelector('.total-score')
+const increaseLine = document.querySelector('.increasing-line')
 let score = 0
 let timeCount = 15
 let updateTime = ''
@@ -72,6 +73,8 @@ replayBtn.addEventListener('click', () => {
 let i = -1
 
 function generateQuestion() {
+    timeLineWidth = 0
+    increaseLine.style.width = '0%'
     i++
     newQuestion.textContent = `${i + 1}. ${quiz[i].question}`
     timeCount = 15
@@ -90,6 +93,7 @@ function generateQuestion() {
         }
     }
     questionsRemaining.innerHTML = `<p><span>${i + 1}</span> of <span>30</span> Questions</p>`
+    increaseLine.style.width = '0px'
     showAnswer()
 
 }
@@ -114,7 +118,11 @@ function showAnswer() {
     })
 }
 
+let timeLineWidth = 0
+
 function timeCountDown() {
+    timeLineWidth = timeLineWidth + 6.67
+    increaseLine.style.width = `${timeLineWidth}%`
     if (timeCount > 0) {
         time.innerHTML = `<div class="time-status">
                         <p>Time Left</p>
@@ -132,6 +140,7 @@ function timeCountDown() {
                     </div>`
         const timeOffAnswer = document.querySelector('.fa-circle-check')
         timeOffAnswer.classList.add('display-status')
+        increaseLine.style.width = '100%'
         clearInterval(updateTime)
     }
 }
